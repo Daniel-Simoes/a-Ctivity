@@ -2,11 +2,7 @@ var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
-var activitys = [
-    'Estudy JAvaScript',
-    'Estudy JAvaScript',
-    'Estudy JAvaScript'
-]; 
+var activitys = JSON.parse(localStorage.getItem('list_activitys')) || []; 
 
 function renderActivitys () {
     listElement.innerHTML = '';
@@ -39,6 +35,8 @@ function addActivity() {
     activitys.push(activityText);
     inputElement.value = '';
     renderActivitys();
+    saveToStorage();
+
 }
 
 buttonElement.onclick = addActivity;
@@ -46,4 +44,10 @@ buttonElement.onclick = addActivity;
 function deleteActivity(pos) {
     activitys.splice(pos, 1);
     renderActivitys();
+    saveToStorage();
+}
+
+function saveToStorage() {
+    localStorage.setItem('list_activitys',JSON.stringify(activitys));
+
 }
