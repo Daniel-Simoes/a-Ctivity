@@ -36,7 +36,6 @@ function addActivity() {
     inputElement.value = '';
     renderActivitys();
     saveToStorage();
-
 }
 
 buttonElement.onclick = addActivity;
@@ -49,5 +48,4 @@ function deleteActivity(pos) {
 
 function saveToStorage() {
     localStorage.setItem('list_activitys',JSON.stringify(activitys));
-
 }
