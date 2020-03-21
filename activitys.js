@@ -2,11 +2,7 @@ var listElement = document.querySelector('body ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
-var activitys = [
-    'sdsds',
-    'dsffdf',
-    'fdfdg'
-];
+var activitys = JSON.parse(localStorage.getItem('list_activitys')) || [];
 
 function renderActivitys () {
 listElement.innerHTML = '';
