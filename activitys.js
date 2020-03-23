@@ -11,11 +11,28 @@ listElement.innerHTML = '';
         var activityElement = document.createElement('li');
         var activityText = document.createTextNode(activity);
        
-        var linkElement = document.createElement('a');
+        var linkElement = document.createElement('button');
+
+
+        var btn = document.getElementById('foi');
+        btn.onclick = function deleteActivity(pos) {
+            activitys.splice(pos, 1);
+        renderActivitys();
+            saveToStorage();
+        }
+
+
+        var btn = document.getElementById('foijj');
+        btn.onclick = function deleteActivity(pos) {
+            activitys.splice(pos, 100);
+        renderActivitys();
+            saveToStorage();
+        }
+
 
         
         
-        var linkText = document.createTextNode(' Done');
+        var linkText = document.createTextNode('Done');
         linkElement.setAttribute('href', '#');
 
         var pos = activitys.indexOf(activity);
@@ -26,6 +43,7 @@ listElement.innerHTML = '';
         activityElement.appendChild(activityText);
         activityElement.appendChild(linkElement);
 
+        
 
         listElement.appendChild(activityElement);
 
