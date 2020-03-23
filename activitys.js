@@ -1,36 +1,36 @@
 var listElement = document.querySelector('body ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
+var paragrafoElement = document.getElementById('sair');
 
 var activitys = JSON.parse(localStorage.getItem('list_activitys')) || [];
 
 function renderActivitys () {
 listElement.innerHTML = '';
 
+
     for (activity of activitys) {
         var activityElement = document.createElement('li');
         var activityText = document.createTextNode(activity);
-       
+
+paragrafoElement.innerHTML = '* Pay Atention, You have activity!';
+
+
         var linkElement = document.createElement('button');
-
-
+        
         var btn = document.getElementById('foi');
         btn.onclick = function deleteActivity(pos) {
             activitys.splice(pos, 1);
         renderActivitys();
             saveToStorage();
         }
-
-
+      
         var btn = document.getElementById('foijj');
         btn.onclick = function deleteActivity(pos) {
             activitys.splice(pos, 100);
         renderActivitys();
             saveToStorage();
         }
-
-
-        
         
         var linkText = document.createTextNode('Done');
         linkElement.setAttribute('href', '#');
@@ -43,11 +43,8 @@ listElement.innerHTML = '';
         activityElement.appendChild(activityText);
         activityElement.appendChild(linkElement);
 
-        
-
         listElement.appendChild(activityElement);
-
-
+        
     }
 }
 
